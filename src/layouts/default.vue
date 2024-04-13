@@ -4,20 +4,34 @@ import Header from '@/layouts/Header/Header.vue'
 </script>
 
 <template>
-  <header>
-    <Header />
-  </header>
+  <div :class="$style.layoutWrapper">
+    <header>
+      <Header />
+    </header>
 
-  <div :class="$style.layoutContent">
-    <NavBar />
-    <RouterView />
+    <div :class="$style.layoutContent">
+      <NavBar />
+
+      <RouterView />
+    </div>
   </div>
 </template>
 
 <style module>
+.layoutWrapper {
+  padding: 8px 20px;
+  height: 100%
+}
+
 .layoutContent {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+}
+
+.layoutContentRoute {
+    background-color: #ffffff;
+    border-radius: 30px;
+    padding: 30px;
+    flex: 1 1 auto;
 }
 </style>
