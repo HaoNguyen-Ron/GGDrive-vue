@@ -20,7 +20,8 @@ import Header from '@/layouts/Header/Header.vue'
 <style module>
 .layoutWrapper {
   padding: 8px 20px;
-  height: 100%
+  height: 100%;
+  background-color: #F8FAFD;
 }
 
 .layoutContent {
