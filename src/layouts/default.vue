@@ -12,7 +12,7 @@ import Header from '@/layouts/Header/Header.vue';
     <div :class="$style.layoutBody">
       <SideBar />
 
-      <div :class="$style.layoutContent">
+      <div :class="$style.layoutContentRoute">
         <RouterView />
       </div>
     </div>
