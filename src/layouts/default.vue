@@ -37,8 +37,4 @@ import Header from '@/layouts/Header/Header.vue';
     padding: 30px;
     flex: 1 1 auto;
 }
-
-.layoutContent {
-  
-}
 </style>

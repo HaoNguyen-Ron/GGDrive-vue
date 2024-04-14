@@ -2,6 +2,7 @@
 import logo from '@/assets/images/google-drive-logo.png'
 
 const dialogFormVisible = ref(false)
+
 const formLabelWidth = '140px'
 
 const form = reactive({
@@ -11,8 +12,8 @@ const form = reactive({
   contain_letter: '',
   location: 'any',
   checkList: ref([]),
-  auth:  ref([]),
-  surveillant:'none',
+  auth: ref([]),
+  surveillant: 'none',
   share_with: '',
 })
 
@@ -57,45 +58,39 @@ function isHoliday({ dayjs }) {
             <div :class="$style.headerPopUpItem">
               <span :class="$style.headerPopUpItemLabel">Loại</span>
 
-              <el-form-item :label-width="formLabelWidth" :class="$style.headerPopUpItemContent" size="large">
-                <el-select v-model="form.file_type">
-                  <el-option label="Bất kỳ" value="any" />
-                  <el-option label="Ảnh và hình ảnh" value="image" />
-                  <el-option label="PDF" value="pdf" />
-                  <el-option label="Tài liệu" value="word" />
-                  <el-option label="Bảng tính" value="excel" />
-                  <el-option label="Bảng trình bày" value="powerpoint" />
-                  <el-option label="Biểu mẫu" value="form" />
-                  <el-option label="Video" value="video" />
-                  <el-option label="Tệp lưu trữ (Zip)" value="zip" />
-                  <el-option label="Bảng vẽ" value="diagram" />
-                  <el-option label="Lối tắt" value="shortcut" />
-                  <el-option label="Thư mục" value="folder" />
-                  <el-option label="Site" value="site" />
-                </el-select>
-              </el-form-item>
+              <el-select v-model="form.file_type" :class="$style.headerPopUpItemContent" size="large">
+                <el-option label="Bất kỳ" value="any" prefix="" />
+                <el-option label="Ảnh và hình ảnh" value="image" />
+                <el-option label="PDF" value="pdf" />
+                <el-option label="Tài liệu" value="word" />
+                <el-option label="Bảng tính" value="excel" />
+                <el-option label="Bảng trình bày" value="powerpoint" />
+                <el-option label="Biểu mẫu" value="form" />
+                <el-option label="Video" value="video" />
+                <el-option label="Tệp lưu trữ (Zip)" value="zip" />
+                <el-option label="Bảng vẽ" value="diagram" />
+                <el-option label="Lối tắt" value="shortcut" />
+                <el-option label="Thư mục" value="folder" />
+                <el-option label="Site" value="site" />
+              </el-select>
             </div>
 
             <div :class="$style.headerPopUpItem">
               <span :class="$style.headerPopUpItemLabel">Chủ sở hữu</span>
 
               <div :class="$style.headerPopUpItemContentWrapper">
-                <el-form-item :label-width="formLabelWidth" size="large">
-                  <el-select v-model="form.owner_ship" placeholder="Please select a zone">
-                    <el-option label="Bất kỳ ai" value="any" />
+                <el-select v-model="form.owner_ship" :label-width="formLabelWidth" size="large">
+                  <el-option label="Bất kỳ ai" value="any" />
 
-                    <el-option label="Do tôi sở hữu" value="my_own" />
+                  <el-option label="Do tôi sở hữu" value="my_own" />
 
-                    <el-option label="không do tôi sở hữu" value="other_own" />
+                  <el-option label="không do tôi sở hữu" value="other_own" />
 
-                    <el-option label="Một người cụ thể" value="specific_person" />
-                  </el-select>
-                </el-form-item>
+                  <el-option label="Một người cụ thể" value="specific_person" />
+                </el-select>
 
                 <div :class="$style.headerPopUpItemContentOption">
-                  <el-form-item :label-width="formLabelWidth">
-                    <el-input v-model="form.name" autocomplete="off" size="large" />
-                  </el-form-item>
+                  <el-input v-model="form.name" autocomplete="off" size="large" :label-width="formLabelWidth" />
                 </div>
               </div>
             </div>
@@ -103,37 +98,31 @@ function isHoliday({ dayjs }) {
             <div :class="$style.headerPopUpItem">
               <span :class="$style.headerPopUpItemLabel">Có các từ</span>
 
-              <el-form-item :label-width="formLabelWidth">
-                <el-input v-model="form.contain_letter" autocomplete="off" placeholder="Nhập các từ tìm thấy trong tệp" size="large" />
-              </el-form-item>
+              <el-input v-model="form.contain_letter" autocomplete="off" placeholder="Nhập các từ tìm thấy trong tệp" size="large" :label-width="formLabelWidth" />
             </div>
 
             <div :class="$style.headerPopUpItem">
               <span :class="$style.headerPopUpItemLabel">Tên mục</span>
 
-              <el-form-item :label-width="formLabelWidth">
-                <el-input v-model="form.contain_letter" autocomplete="off" placeholder="Nhập một cụm từ khớp với một phần của tên tệp" size="large" />
-              </el-form-item>
+              <el-input v-model="form.contain_letter" autocomplete="off" placeholder="Nhập một cụm từ khớp với một phần của tên tệp" size="large" :label-width="formLabelWidth" />
             </div>
 
             <div :class="$style.headerPopUpItem">
               <span :class="$style.headerPopUpItemLabel">Địa điểm</span>
 
               <div class="headerPopUpItemContentWrapper">
-                <el-form-item :label-width="formLabelWidth" :class="$style.headerPopUpItemContent" size="large">
-                  <el-select v-model="form.location">
-                    <el-option label="Mọi nơi" value="any" />
+                <el-select v-model="form.location" :label-width="formLabelWidth" :class="$style.headerPopUpItemContent" size="large">
+                  <el-option label="Mọi nơi" value="any" />
 
-                    <el-option label="Drive của tôi" value="my_drive" />
+                  <el-option label="Drive của tôi" value="my_drive" />
 
-                    <el-option label="Được chia sẻ với tôi" value="share_drive" />
+                  <el-option label="Được chia sẻ với tôi" value="share_drive" />
 
-                    <el-option label="Vị trí khác" value="other_location" />
-                  </el-select>
-                </el-form-item>
+                  <el-option label="Vị trí khác" value="other_location" />
+                </el-select>
 
                 <el-form-item :label-width="formLabelWidth" :class="$style.headerPopUpItemContentCheckbox">
-                  <el-checkbox-group v-model="checkList" :class="$style.headerPopUpCheckbox" >
+                  <el-checkbox-group v-model="checkList" :class="$style.headerPopUpCheckbox">
                     <el-checkbox label="Trong thùng rác" value="Trash" />
                     <el-checkbox label="Có đánh dấu sao" value="Start" />
                     <el-checkbox label="Đã mã hóa" value="Encript" />
@@ -146,17 +135,15 @@ function isHoliday({ dayjs }) {
               <span :class="$style.headerPopUpItemLabel">Ngày sửa đổi</span>
 
               <div class="headerPopUpItemContentWrapper">
-                <el-form-item :label-width="formLabelWidth" :class="$style.headerPopUpItemContent" size="large">
-                  <el-select v-model="form.file_type">
-                    <el-option label="Mọi lúc" value="any" />
-                    <el-option label="Hôm nay" value="image" />
-                    <el-option label="Hôm qua" value="pdf" />
-                    <el-option label="7 ngày qua" value="word" />
-                    <el-option label="30 ngày qua" value="excel" />
-                    <el-option label="90 ngày qua" value="powerpoint" />
-                    <el-option label="Tùy chỉnh" value="form" />
-                  </el-select>
-                </el-form-item>
+                <el-select v-model="form.file_type" :label-width="formLabelWidth" :class="$style.headerPopUpItemContent" size="large">
+                  <el-option label="Mọi lúc" value="any" />
+                  <el-option label="Hôm nay" value="image" />
+                  <el-option label="Hôm qua" value="pdf" />
+                  <el-option label="7 ngày qua" value="word" />
+                  <el-option label="30 ngày qua" value="excel" />
+                  <el-option label="90 ngày qua" value="powerpoint" />
+                  <el-option label="Tùy chỉnh" value="form" />
+                </el-select>
 
                 <div :class="$style.headerPopUpItemContentOption">
                   <span :class="$style.headerPopUpItemLabel">Nằm trong khoảng</span>
@@ -202,36 +189,32 @@ function isHoliday({ dayjs }) {
               <span :class="$style.headerPopUpItemLabel">Yêu cầu phê duyệt</span>
 
               <el-form-item :label-width="formLabelWidth">
-                <el-checkbox-group v-model="auth" :class="$style.headerPopUpCheckbox" >
-                    <el-checkbox label="Đang chờ tôi phê duyệt" value="pending" />
-                    <el-checkbox label="Do tôi yêu cầu" value="request" />
-                  </el-checkbox-group>
+                <el-checkbox-group v-model="auth" :class="$style.headerPopUpCheckbox">
+                  <el-checkbox label="Đang chờ tôi phê duyệt" value="pending" />
+                  <el-checkbox label="Do tôi yêu cầu" value="request" />
+                </el-checkbox-group>
               </el-form-item>
             </div>
 
             <div :class="$style.headerPopUpItem">
               <span :class="$style.headerPopUpItemLabel">Đã chia sẻ với tôi</span>
 
-              <el-form-item :label-width="formLabelWidth">
-                <el-input v-model="form.share_with" autocomplete="off" placeholder="Nhập tên địa chỉ hoặc email..." size="large" />
-              </el-form-item>
+              <el-input v-model="form.share_with" autocomplete="off" :label-width="formLabelWidth" size="large" />
             </div>
 
             <div :class="$style.headerPopUpItem">
               <span :class="$style.headerPopUpItemLabel">Mục cần theo dõi</span>
 
               <div :class="$style.headerPopUpItemContentWrapper">
-                <el-form-item :label-width="formLabelWidth" size="large">
-                  <el-select v-model="form.surveillant">
-                    <el-option label="-" value="none" />
+                <el-select v-model="form.surveillant" label-width="formLabelWidth" size="large">
+                  <el-option label="-" value="none" />
 
-                    <el-option label="Bất kỳ" value="any" />
+                  <el-option label="Bất kỳ" value="any" />
 
-                    <el-option label="Chỉ những mục có nội dung để xuất" value="contain_content" />
+                  <el-option label="Chỉ những mục có nội dung để xuất" value="contain_content" />
 
-                    <el-option label="Chỉ những nhận xét được giao cho tôi" value="shared_comment" />
-                  </el-select>
-                </el-form-item>
+                  <el-option label="Chỉ những nhận xét được giao cho tôi" value="shared_comment" />
+                </el-select>
               </div>
             </div>
           </el-form>
@@ -239,17 +222,17 @@ function isHoliday({ dayjs }) {
           <template #footer>
             <div class="dialog-footer" :class="$style.headerPopUpFooter">
               <div class="dialog-footer-left">
-                <button @click="dialogFormVisible = false" :class="[$style.headerPopUpFooterBtn, $style.headerPopUpFooterBtnSecondary]">
+                <button :class="[$style.headerPopUpFooterBtn, $style.headerPopUpFooterBtnSecondary]" @click="dialogFormVisible = false">
                   <a href="/">Tìm hiểu thêm</a>
                 </button>
               </div>
 
               <div :class="$style.headerPopUpFooterRight">
-                <button @click="dialogFormVisible = false" :class="[$style.headerPopUpFooterBtn, $style.headerPopUpFooterBtnSecondary]">
+                <button :class="[$style.headerPopUpFooterBtn, $style.headerPopUpFooterBtnSecondary]" @click="dialogFormVisible = false">
                   Đặt lại
                 </button>
 
-                <button @click="dialogFormVisible = false" :class="[$style.headerPopUpFooterBtn, $style.headerPopUpFooterBtnPrimary]">
+                <button :class="[$style.headerPopUpFooterBtn, $style.headerPopUpFooterBtnPrimary]" @click="dialogFormVisible = false">
                   Tìm kiếm
                 </button>
               </div>
@@ -259,20 +242,53 @@ function isHoliday({ dayjs }) {
       </form>
 
       <div :class="$style.headerBtnWrapper">
-        <button :class="[$style.headerBtn, $style.headerActionBtn]">
-          <i class="fa-regular fa-circle-question" :class=" $style.headerIcon" />
-        </button>
+        <el-dropdown trigger="click">
+          <el-button>
+            <i class="fa-regular fa-circle-question" :class=" $style.headerIcon" />
+          </el-button>
 
-        <button :class="[$style.headerBtn, $style.headerActionBtn]">
-          <i class="fa-solid fa-gear" :class=" $style.headerIcon" />
-        </button>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item>Trợ giúp</el-dropdown-item>
+              <el-dropdown-item>Đạo tạo</el-dropdown-item>
+              <div :class="$style.headerBorderBottom" />
+              <el-dropdown-item>Điều khoảng và chính sách</el-dropdown-item>
+              <div :class="$style.headerBorderBottom" />
+              <el-dropdown-item> Gửi ý kiến phản hồi cho Google</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+
+        <el-dropdown trigger="click">
+          <el-button>
+            <i class="fa-solid fa-gear" :class=" $style.headerIcon" />
+          </el-button>
+
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item>Cài đặt</el-dropdown-item>
+              <el-dropdown-item>Tải Drive cho máy tính</el-dropdown-item>
+              <el-dropdown-item> Phím tắt</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
       </div>
     </div>
 
     <div :class="$style.headerAccountWrapper">
-      <div :class="[$style.headerIcon, $style.headerBtn]">
-        <i class="fa-solid fa-list-ul" />
-      </div>
+      <el-dropdown trigger="click">
+          <el-button>
+            <i class="fa-solid fa-list-ul" :class="$style.headerIcon" />
+          </el-button>
+
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item>Cài đặt</el-dropdown-item>
+              <el-dropdown-item>Tải Drive cho máy tính</el-dropdown-item>
+              <el-dropdown-item> Phím tắt</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
 
       <div class="demo-basic--circle">
         <div class="block" :class="$style.headerAvatar">
@@ -431,10 +447,6 @@ function isHoliday({ dayjs }) {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  & * {
-    font-family: "Open Sans", sans-serif;
-    font-weight: 500;
-  }
 }
 
 .headerPopUpItem{
@@ -448,6 +460,7 @@ function isHoliday({ dayjs }) {
   font-size: 14px;
   line-height:44px;
   letter-spacing: 0.3px;
+  font-family: "Roboto", sans-serif;
 }
 
 .headerPopUpItemContentWrapper {
@@ -482,6 +495,7 @@ function isHoliday({ dayjs }) {
   font-size: 14px;
   line-height:56px;
   letter-spacing: 0.3px;
+  font-family: "Roboto", sans-serif;
 }
 
 .headerPopUpFooter {
@@ -534,12 +548,21 @@ function isHoliday({ dayjs }) {
   }
 }
 
+.headerBorderBottom {
+  margin: 5px 0;
+  border: 0.5px solid rgb(199, 199, 199)
+}
+
 :global(.el-form-item ) {
   margin-bottom: 0;
 }
 
 :global(.el-select__wrapper) {
   padding: 0 12px;
+}
+
+:global(.el-checkbox__label) {
+  font-family: "Roboto", sans-serif;
 }
 
 :global(.el-form-item__content) {
@@ -553,5 +576,57 @@ function isHoliday({ dayjs }) {
 
 :global(.el-button>span) {
   background-color: transparent;
+}
+
+:global(.el-button) {
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+
+  &:hover {
+    background-color: #DCE0E8;
+  }
+
+  &:active {
+    background-color: transparent;
+    border: 1px solid var(--color-primary-lighter)
+  }
+}
+
+:global(.el-select__placeholder) {
+  font-family: "Roboto", sans-serif;
+}
+
+:global(.el-dropdown-menu__item) {
+  font-family: "Roboto", sans-serif;
+  padding: 8px 30px;
+
+  &:hover {
+    background-color: #DCE0E8;
+  }
+}
+
+:global(.el-dropdown__popper) {
+  --el-dropdown-menuItem-hover-fill: #DCE0E8;
+}
+
+:global(.el-select-dropdown__item) {
+  font-family: "Roboto", sans-serif;
+}
+</style>
+
+<style scoped>
+.example-showcase .el-dropdown + .el-dropdown {
+  margin-left: 15px;
+}
+.example-showcase .el-dropdown-link {
+  cursor: pointer;
+  color: var(--el-color-primary);
+  display: flex;
+  align-items: center;
 }
 </style>
