@@ -276,7 +276,7 @@ function isHoliday({ dayjs }) {
 
       <div class="demo-basic--circle">
         <div class="block" :class="$style.headerAvatar">
-          <el-avatar :size="40" :src="circleUrl" />
+          <el-avatar :size="32" :src="circleUrl" />
         </div>
 
         <div v-for="size in sizeList" :key="size" class="block">
@@ -294,15 +294,16 @@ function isHoliday({ dayjs }) {
   align-items: center;
   line-height: 27px;
   margin-bottom: 10px;
+  padding: 8px;
 }
 
 .headerLogoWrapper {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding-right: 4px;
   flex: 0 0 250px;
   gap: 10px;
+  padding-left: 16px;
 }
 
 .headerLogo {
@@ -346,6 +347,10 @@ function isHoliday({ dayjs }) {
   align-items: center;
   justify-content:center;
   gap: 8px;
+}
+.headerAvatar {
+  width: 48px;
+  height: 48px;
 }
 
 .headerInput {

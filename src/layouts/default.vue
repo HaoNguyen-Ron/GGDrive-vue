@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import NavBar from '@/components/NavBar/NavBar.vue'
-import Header from '@/layouts/Header/Header.vue'
+import SideBar from '@/components/NavBar/SideBar.vue';
+import Header from '@/layouts/Header/Header.vue';
 </script>
 
 <template>
@@ -9,22 +9,24 @@ import Header from '@/layouts/Header/Header.vue'
       <Header />
     </header>
 
-    <div :class="$style.layoutContent">
-      <NavBar />
+    <div :class="$style.layoutBody">
+      <SideBar />
 
-      <RouterView />
+      <div :class="$style.layoutContent">
+        <RouterView />
+      </div>
     </div>
   </div>
 </template>
 
 <style module>
 .layoutWrapper {
-  padding: 8px 20px;
   height: 100%;
   background-color: #F8FAFD;
+  padding: 0 16px;
 }
 
-.layoutContent {
+.layoutBody {
   display: flex;
   justify-content: flex-start;
 }
@@ -34,5 +36,9 @@ import Header from '@/layouts/Header/Header.vue'
     border-radius: 30px;
     padding: 30px;
     flex: 1 1 auto;
+}
+
+.layoutContent {
+  
 }
 </style>
