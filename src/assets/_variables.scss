@@ -1,5 +1,5 @@
 :root {
-  --color-primary: #005ab6;
+  --color-primary: rgb(41, 98, 255);
   --color-primary-light: #0077d9;
   --color-primary-lighter: #0092ff;
   --color-primary-lightest: #c2e7ff;
@@ -19,7 +19,8 @@
   --color-gray-dark: #495057;
   --color-gray-darker: #343a40;
 
-}
+  --color-hover: #DCE0E8
+  --color-popup-background: rgb(233, 238, 246);
+};
 
 $bg-primary-color: #F8FAFD;
-$hover-primary-color: #DCE0E8

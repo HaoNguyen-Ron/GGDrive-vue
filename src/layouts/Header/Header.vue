@@ -277,28 +277,26 @@ function isHoliday({ dayjs }) {
 
     <div :class="$style.headerAccountWrapper">
       <el-dropdown trigger="click">
-          <el-button>
-            <i class="fa-solid fa-list-ul" :class="$style.headerIcon" />
-          </el-button>
+        <el-button>
+          <i class="fa-solid fa-list-ul" :class="$style.headerIcon" />
+        </el-button>
 
-          <template #dropdown>
-            <el-dropdown-menu>
-              <el-dropdown-item>Cài đặt</el-dropdown-item>
-              <el-dropdown-item>Tải Drive cho máy tính</el-dropdown-item>
-              <el-dropdown-item> Phím tắt</el-dropdown-item>
-            </el-dropdown-menu>
-          </template>
-        </el-dropdown>
+        <template #dropdown>
+          <HeaderService />
+        </template>
+      </el-dropdown>
 
-      <div class="demo-basic--circle">
-        <div class="block" :class="$style.headerAvatar">
-          <el-avatar :size="32" :src="circleUrl" />
-        </div>
+      <el-dropdown trigger="click">
+        <el-button>
+          <div class="block" :class="$style.headerAvatar">
+            <el-avatar :size="32" :src="circleUrl" />
+          </div>
+        </el-button>
 
-        <div v-for="size in sizeList" :key="size" class="block">
-          <el-avatar :size="size" :src="circleUrl" />
-        </div>
-      </div>
+        <template #dropdown>
+          <HeaderAccount />
+        </template>
+      </el-dropdown>
     </div>
   </div>
 </template>
@@ -432,6 +430,7 @@ function isHoliday({ dayjs }) {
 .headerAvatar {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 //-----------------------------------Header PopUp

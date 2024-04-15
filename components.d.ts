@@ -20,12 +20,16 @@ declare module 'vue' {
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElInput: typeof import('element-plus/es')['ElInput']
+    ElMenu: typeof import('element-plus/es')['ElMenu']
+    ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
+    ElMenuItemGroup: typeof import('element-plus/es')['ElMenuItemGroup']
     ElOption: typeof import('element-plus/es')['ElOption']
     ElSelect: typeof import('element-plus/es')['ElSelect']
-    NavBar: typeof import('./src/components/NavBar/NavBar.vue')['default']
+    ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
+    HeaderAccount: typeof import('./src/components/Header/HeaderAccount/HeaderAccount.vue')['default']
+    HeaderService: typeof import('./src/components/Header/HeaderService/HeaderService.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    sideBar: typeof import('./src/components/sideBar/sideBar.vue')['default']
     SideBar: typeof import('./src/components/NavBar/SideBar.vue')['default']
   }
 }
