@@ -40,8 +40,7 @@ import { GOOGLE_ICON_API } from '@/constant'
 
     .serviceWrapperGroup {
         width: 100%;
-        height: 100vh;
-        padding: 30px;
+        padding: 24px 20px;
         background-color: #ffffff;
         
         &:first-child {
@@ -63,6 +62,7 @@ import { GOOGLE_ICON_API } from '@/constant'
     .serviceWrapperList {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(6,96px);
         font-family: 'Roboto', sans-serif;
     }
 
@@ -71,12 +71,12 @@ import { GOOGLE_ICON_API } from '@/constant'
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 84px;
-        height: 84px;
+        width: 96px;
+        height: 96px;
         border-radius: 20px;
 
         &:hover {
-            background-color: var(--color-hover);
+            background-color:#e9eef6;
         }
     }
 

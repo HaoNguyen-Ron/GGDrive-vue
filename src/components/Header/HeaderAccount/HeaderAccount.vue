@@ -4,8 +4,22 @@ const account = {
   avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbNn4d_lU3UW7qa9LBZXxD9VKVCwTq-2wESi364DCN5g&s',
   first_name: 'Arthur',
   last_name: 'Morgan',
-
 }
+
+const subAccount = [
+  {
+    email: 'anothergmail@gmail.com',
+    avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbNn4d_lU3UW7qa9LBZXxD9VKVCwTq-2wESi364DCN5g&s',
+    first_name: 'Geralt',
+    last_name: 'Rivia',
+  },
+  {
+    email: 'andanothergmail@gmail.com',
+    avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbNn4d_lU3UW7qa9LBZXxD9VKVCwTq-2wESi364DCN5g&s',
+    first_name: 'Lara',
+    last_name: 'Croft',
+  },
+]
 </script>
 
 <template>
@@ -24,14 +38,14 @@ const account = {
 
     <button :class="$style.headerAccountBtn">
       <a href="/" :class="$style.headerAccountBtnLink">
-        Quản lý tài khoảng của bạn
+        Quản lý tài khoản của bạn
       </a>
     </button>
 
     <el-menu
       default-active="2"
       class="el-menu-vertical-demo"
-      :class="$style.headerAccountList"
+      :class="$style.headerAccountUsers"
       @open="handleOpen"
       @close="handleClose"
     >
@@ -41,7 +55,7 @@ const account = {
           <span>Navigator One</span>
         </template>
 
-        <el-menu-item-group title="Group One">
+        <el-menu-item-group :class="$style.headerAccountList">
           <el-menu-item index="1-1">
             item one
           </el-menu-item>
@@ -49,19 +63,6 @@ const account = {
             item two
           </el-menu-item>
         </el-menu-item-group>
-        <el-menu-item-group title="Group Two">
-          <el-menu-item index="1-3">
-            item three
-          </el-menu-item>
-        </el-menu-item-group>
-        <el-sub-menu index="1-4">
-          <template #title>
-            item four
-          </template>
-          <el-menu-item index="1-4-1">
-            item one
-          </el-menu-item>
-        </el-sub-menu>
       </el-sub-menu>
     </el-menu>
   </div>
@@ -77,7 +78,7 @@ const account = {
         border-radius: 30px;
         width: 436px;
         font-family: 'Roboto', sans-serif;
-        padding: 8px 12px 16px 12px;
+        padding: 8px 28px 16px 28px;
     }
 
     .headerAccountEmail {
@@ -85,6 +86,7 @@ const account = {
         font-weight: 500;
         overflow: hidden;
         line-height: 20px;
+        padding: 18px 0;
     }
 
     .headerAccountAvatar {
@@ -109,9 +111,10 @@ const account = {
         line-height: 20px;
         font-weight: 500;
         height: 36px;
+        background-color: transparent;
 
         &:hover {
-        background-color: #E6EDFA;
+        background-color: #cddbf5;
         }
 
         &:active {
@@ -124,8 +127,48 @@ const account = {
         padding: 9px 23px;
     }
 
-    .headerAccountList {
+    .headerAccountUsers {
         width: 100%;
         border-radius: 30px;
+    }
+
+    .headerAccountList {
+      border-bottom-right-radius: 30px;
+      border-bottom-left-radius: 30px;
+    }
+
+    :global(.el-sub-menu__title){
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+      &:hover {
+        background-color: var(--color-hover);
+      }
+
+      &:active {
+        background-color: var(--color-hover);
+      }
+    }
+
+    :global(.el-sub-menu){
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+
+        &:hover {
+          border-radius: 30px;
+        }
+
+        &:active {
+          border-radius: 30px;
+        }
+    }
+
+    :global(.el-menu) {
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+    }
+
+    :global(.el-dropdown__list) {
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
     }
 </style>
