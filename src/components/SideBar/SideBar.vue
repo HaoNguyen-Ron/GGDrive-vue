@@ -5,10 +5,7 @@
 <template>
   <div :class="$style.sideBarWrapper">
     <div :class="$style.sideBarHeader">
-      <button :class="$style.sideBarAddBtn">
-        <i class="fa-solid fa-plus" :class="$style.sideBarItemIcon" />
-        Mới
-      </button>
+      <SideBarAddBtn />
     </div>
 
     <div :class="$style.sideBarBody">
@@ -126,29 +123,6 @@
     padding: 8px 16px 16px 0;
   }
 
-  .sideBarAddBtn {
-    display: flex;
-    align-items:center;
-    justify-content: flex-start;
-    gap: 12px;
-    border-radius: 16px;
-    box-shadow:  rgba(0, 0, 0, 0.3) 0px 4px 6px 0px;
-    padding: 18px 20px 18px 16px;
-    background-color: #ffffff;
-    font-family: 'Arial', sans-serif;
-    text-align:center;
-    font-weight: 500;
-    line-height:20px;
-    color: #1f1f1f;
-    font-size: 14px;
-    cursor: pointer;
-    min-width: 100px;
-
-    &:hover {
-      background-color: #e9eef6;
-    }
-  }
-
   .sideBarBtn {
     display: flex;
     align-items:center;
@@ -254,7 +228,7 @@
     height: 36px;
 
     &:hover {
-      background-color: #E6EDFA;
+      background-color: var(--color-hover);
     }
 
     &:active {

@@ -6,18 +6,18 @@ const account = {
   last_name: 'Morgan',
 }
 
-const subAccount = [
+const subAccounts = [
   {
     email: 'anothergmail@gmail.com',
-    avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbNn4d_lU3UW7qa9LBZXxD9VKVCwTq-2wESi364DCN5g&s',
+    avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAWLUtIIEmlMvMJRpmjzInpJQpKCommIwuTQ&s',
     first_name: 'Geralt',
     last_name: 'Rivia',
   },
   {
     email: 'andanothergmail@gmail.com',
-    avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbNn4d_lU3UW7qa9LBZXxD9VKVCwTq-2wESi364DCN5g&s',
-    first_name: 'Lara',
-    last_name: 'Croft',
+    avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRenSktYU-a2W_aRVPU9QdR3fnssN_bFgUraw&s',
+    first_name: 'Giga',
+    last_name: 'Chad',
   },
 ]
 </script>
@@ -46,25 +46,55 @@ const subAccount = [
       default-active="2"
       class="el-menu-vertical-demo"
       :class="$style.headerAccountUsers"
-      @open="handleOpen"
-      @close="handleClose"
     >
-      <el-sub-menu index="1">
+      <el-sub-menu>
         <template #title>
-          <el-icon><location /></el-icon>
-          <span>Navigator One</span>
+          <span> Hiện thêm tài khoản</span>
         </template>
 
         <el-menu-item-group :class="$style.headerAccountList">
-          <el-menu-item index="1-1">
-            item one
-          </el-menu-item>
-          <el-menu-item index="1-2">
-            item two
-          </el-menu-item>
+          <div v-for="(account, index) in subAccounts" :key="index" :class="$style.headerAccountSubList">
+            <img :src="account.avatar" alt="user avatar" :class="$style.headerAccountSubAvatar">
+
+            <div :class="$style.headerAccountSubUserDetail">
+              <p :class="$style.headerAccountSubUserName">
+                {{ `${account.first_name} ${account.last_name}` }}
+              </p>
+
+              <p :class="$style.headerAccountSubUserEmail">
+                {{ account.email }}
+              </p>
+            </div>
+          </div>
+
+          <div :class="$style.headerAccountSubList">
+            <i class="fa-solid fa-plus" :class="$style.headerAccountSubIcon" />
+
+            <span :class="$style.headerAccountSubTitle">
+              Thêm tài khoản khác
+            </span>
+          </div>
+
+          <div :class="$style.headerAccountSubList">
+            <i class="fa-solid fa-arrow-right-from-bracket" :class="$style.headerAccountSubIcon" />
+
+            <span :class="$style.headerAccountSubTitle">
+              Đăng xuất khỏi tất cả tài khoản
+            </span>
+          </div>
         </el-menu-item-group>
       </el-sub-menu>
     </el-menu>
+
+    <div :class="$style.headerAccountPolicy">
+      <div :class="$style.headerAccountPolicyItem">
+        <a href="/">Chính sách quyền riêng tư</a>
+      </div>
+
+      <div :class="$style.headerAccountPolicyItem">
+        <a href="/">Điều khoảng dịch vụ</a>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -110,7 +140,7 @@ const subAccount = [
         border-radius: 99999px;
         line-height: 20px;
         font-weight: 500;
-        height: 36px;
+        height: 40px;
         background-color: transparent;
 
         &:hover {
@@ -135,6 +165,83 @@ const subAccount = [
     .headerAccountList {
       border-bottom-right-radius: 30px;
       border-bottom-left-radius: 30px;
+    }
+
+    .headerAccountSubList {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      border-top: 1px solid var(--color-gray-lightest);
+      height: 56px;
+      padding: 10px 15px 10px 20px;
+
+      &:hover {
+        background-color: var(--color-hover);
+      }
+    }
+
+    .headerAccountSubUserDetail {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin-left: 12px;
+    }
+     .headerAccountSubTitle {
+      margin-left: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      text-align:left;
+      text-wrap: nowrap
+     }
+
+    .headerAccountSubAvatar {
+      width: 32px;
+      height:32px;
+      border-radius: 50%;
+    }
+
+    .headerAccountSubIcon {
+      background-color: #e9eef6;
+      border-radius: 50%;
+      color: var(--color-primary);
+      font-size: 12px;
+      padding: 6px;
+      margin: 4px;
+    }
+
+    .headerAccountSubUserName {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      text-align:left;
+      text-wrap: nowrap
+    }
+
+    .headerAccountSubUserEmail {
+      font-size: 12px;
+      line-height: 16px;
+      margin-top: 2px;
+      font-weight: 400;
+    }
+
+    .headerAccountPolicy {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      gap: 16px;
+      padding-top: 20px;
+    }
+
+    .headerAccountPolicyItem {
+      padding: 5px 4px;
+      text-align: right;
+
+      &:last-child::before{
+        content:"●";
+        margin-right: 20px;
+        color: rgba(0, 0, 0, .87);
+      }
     }
 
     :global(.el-sub-menu__title){
@@ -167,8 +274,18 @@ const subAccount = [
       border-bottom-right-radius: 30px;
     }
 
+    :global(.el-menu-item) {
+      &:hover {
+        background-color: var(--color-hover);
+      }
+    }
+
     :global(.el-dropdown__list) {
       border-bottom-left-radius: 30px;
       border-bottom-right-radius: 30px;
+    }
+
+    :global(.el-menu-item-group__title) {
+      padding: 0;
     }
 </style>

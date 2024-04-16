@@ -26,10 +26,13 @@ declare module 'vue' {
     ElOption: typeof import('element-plus/es')['ElOption']
     ElSelect: typeof import('element-plus/es')['ElSelect']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
+    Header: typeof import('./src/components/Header/Header.vue')['default']
     HeaderAccount: typeof import('./src/components/Header/HeaderAccount/HeaderAccount.vue')['default']
+    HeaderSearch: typeof import('./src/components/Header/HeaderSearch/HeaderSearch.vue')['default']
     HeaderService: typeof import('./src/components/Header/HeaderService/HeaderService.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    SideBar: typeof import('./src/components/NavBar/SideBar.vue')['default']
+    SideBar: typeof import('./src/components/SideBar/SideBar.vue')['default']
+    SideBarAddBtn: typeof import('./src/components/SideBar/SideBarAddBtn/SideBarAddBtn.vue')['default']
   }
 }

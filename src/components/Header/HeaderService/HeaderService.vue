@@ -8,7 +8,7 @@ import { GOOGLE_ICON_API } from '@/constant'
       <div v-for="(item, index) in GOOGLE_ICON_API" :key="index" :class="$style.serviceWrapperItem">
         <a href="/">
           <!-- <img :src="item.image" alt="gg services"> -->
-          <el-avatar :size="53" :src="circleUrl" />
+          <el-avatar :size="53" />
         </a>
 
         <p>{{ item.name }}</p>
@@ -19,7 +19,7 @@ import { GOOGLE_ICON_API } from '@/constant'
       <div v-for="(item, index) in GOOGLE_ICON_API" :key="index" :class="$style.serviceWrapperItem">
         <a href="/">
           <!-- <img :src="item.image" alt="gg services"> -->
-          <el-avatar :size="53" :src="circleUrl" />
+          <el-avatar :size="53" />
         </a>
 
         <p>{{ item.name }}</p>
