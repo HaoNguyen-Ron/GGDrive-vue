@@ -1,4 +1,6 @@
 <script setup>
+const activeDrive = ref(['1'])
+const activePc = ref(['1'])
 </script>
 
 <template>
@@ -13,23 +15,71 @@
         <span :class="$style.sideBarCategoryContent">Trang chủ</span>
       </button>
 
-      <button :class="[$style.sideBarBtn, $style.sideBarCategory]">
+      <!-- <button :class="[$style.sideBarBtn, $style.sideBarCategory]">
         <div :class="$style.sideBarCategoryIcon">
           <i class="fa-solid fa-caret-right" />
           <i class="fa-regular fa-hard-drive" />
         </div>
 
         <span :class="$style.sideBarCategoryContent">Drive của tôi</span>
-      </button>
+      </button> -->
 
-      <button :class="[$style.sideBarBtn, $style.sideBarCategory]">
+      <!-- <button :class="[$style.sideBarBtn, $style.sideBarCategory]">
         <div :class="$style.sideBarCategoryIcon">
           <i class="fa-solid fa-caret-right" />
           <i class="fa-solid fa-computer" />
         </div>
 
         <span :class="$style.sideBarCategoryContent">Máy Tính</span>
-      </button>
+      </button> -->
+
+      <el-collapse v-model="activeDrive">
+        <el-collapse-item name="1">
+          <template #title>
+            <button :class="[$style.sideBarBtn, $style.sideBarCategory]">
+              <div :class="$style.sideBarCategoryIcon">
+                <i class="fa-solid fa-caret-right" />
+                <i class="fa-regular fa-hard-drive" />
+              </div>
+
+              <span :class="$style.sideBarCategoryContent">Drive của tôi</span>
+            </button>
+          </template>
+
+          <div>
+            Consistent with real life: in line with the process and logic of real
+            life, and comply with languages and habits that the users are used to;
+          </div>
+          <div>
+            Consistent within interface: all elements should be consistent, such
+            as: design style, icons and texts, position of elements, etc.
+          </div>
+        </el-collapse-item>
+      </el-collapse>
+
+      <el-collapse v-model="activePc">
+        <el-collapse-item name="1">
+          <template #title>
+            <button :class="[$style.sideBarBtn, $style.sideBarCategory]">
+              <div :class="$style.sideBarCategoryIcon">
+                <i class="fa-solid fa-caret-right" />
+                <i class="fa-regular fa-hard-drive" />
+              </div>
+
+              <span :class="$style.sideBarCategoryContent">Máy tính</span>
+            </button>
+          </template>
+
+          <div>
+            Consistent with real life: in line with the process and logic of real
+            life, and comply with languages and habits that the users are used to;
+          </div>
+          <div>
+            Consistent within interface: all elements should be consistent, such
+            as: design style, icons and texts, position of elements, etc.
+          </div>
+        </el-collapse-item>
+      </el-collapse>
     </div>
 
     <div :class="$style.sideBarCategoryGroup">
@@ -100,8 +150,8 @@
   }
 
   .sideBarCategoryGroup {
-    display:grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    display:flex;
+    flex-direction: column
   }
 
   .sideBarCategory {
@@ -150,5 +200,24 @@
     cursor: pointer;
     width: 224px;
     height: 32px;
+  }
+
+  :global(.el-collapse-item__header) {
+    background-color: transparent;
+    border-bottom: none;
+  }
+
+  :global(.el-collapse) {
+    border: none;
+    border-bottom: none;
+  }
+
+  :global(.el-collapse-item__wrap ) {
+    background-color: transparent;
+    border: none;
+  }
+
+  :global(.el-icon) {
+    display: none;
   }
 </style>
