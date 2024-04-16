@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 </script>
 
 <template>
@@ -9,94 +8,7 @@
     </div>
 
     <div :class="$style.sideBarBody">
-      <div :class="$style.sideBarList">
-        <div :class="$style.sideBarItemGroup">
-          <button :class="[$style.sideBarBtn, $style.sideBarItem]">
-            <div :class="$style.sideBarItemIcon">
-              <i class="fa-solid fa-caret-right" :style="{ opacity: '0' }" />
-              <i class="fa-solid fa-home" />
-            </div>
-
-            <span :class="$style.sideBarItemContent">Trang chủ</span>
-          </button>
-
-          <button :class="[$style.sideBarBtn, $style.sideBarItem]">
-            <div :class="$style.sideBarItemIcon">
-              <i class="fa-solid fa-caret-right" />
-              <i class="fa-regular fa-hard-drive" />
-            </div>
-
-            <span :class="$style.sideBarItemContent">Drive của tôi</span>
-          </button>
-
-          <button :class="[$style.sideBarBtn, $style.sideBarItem]">
-            <div :class="$style.sideBarItemIcon">
-              <i class="fa-solid fa-caret-right" />
-              <i class="fa-solid fa-computer" />
-            </div>
-
-            <span :class="$style.sideBarItemContent">Máy Tính</span>
-          </button>
-        </div>
-
-        <div :class="$style.sideBarItemGroup">
-          <button :class="[$style.sideBarBtn, $style.sideBarItem]">
-            <div :class="$style.sideBarItemIcon">
-              <i class="fa-solid fa-caret-right" :style="{ opacity: '0' }" />
-              <i class="fa-regular fa-user" />
-            </div>
-
-            <span :class="$style.sideBarItemContent">Được chia sẻ với tôi</span>
-          </button>
-
-          <button :class="[$style.sideBarBtn, $style.sideBarItem]">
-            <div :class="$style.sideBarItemIcon">
-              <i class="fa-solid fa-caret-right" :style="{ opacity: '0' }" />
-              <i class="fa-regular fa-clock" />
-            </div>
-
-            <span :class="$style.sideBarItemContent">Gần đây</span>
-          </button>
-
-          <button :class="[$style.sideBarBtn, $style.sideBarItem]">
-            <div :class="$style.sideBarItemIcon">
-              <i class="fa-solid fa-caret-right" :style="{ opacity: '0' }" />
-              <i class="fa-regular fa-star" />
-            </div>
-
-            <span :class="$style.sideBarItemContent">Có gắn dấu sao</span>
-          </button>
-        </div>
-
-        <div :class="$style.sideBarItemGroup">
-          <button :class="[$style.sideBarBtn, $style.sideBarItem]">
-            <div :class="$style.sideBarItemIcon">
-              <i class="fa-solid fa-caret-right" :style="{ opacity: '0' }" />
-              <i class="fa-regular fa-circle-xmark" />
-            </div>
-
-            <span :class="$style.sideBarItemContent">Nội dung rác</span>
-          </button>
-
-          <button :class="[$style.sideBarBtn, $style.sideBarItem]">
-            <div :class="$style.sideBarItemIcon">
-              <i class="fa-solid fa-caret-right" :style="{ opacity: '0' }" />
-              <i class="fa-regular fa-trash-can" />
-            </div>
-
-            <span :class="$style.sideBarItemContent">Thùng rác</span>
-          </button>
-
-          <button :class="[$style.sideBarBtn, $style.sideBarItem]">
-            <div :class="$style.sideBarItemIcon">
-              <i class="fa-solid fa-caret-right" :style="{ opacity: '0' }" />
-              <i class="fa-solid fa-cloud" />
-            </div>
-
-            <span :class="$style.sideBarItemContent">Bộ nhớ</span>
-          </button>
-        </div>
-      </div>
+      <SideBarCategory />
 
       <div :class="$style.sideBarBodyStorage">
         <div :class="$style.sideBarBodyStorageBar">
@@ -123,67 +35,8 @@
     padding: 8px 16px 16px 0;
   }
 
-  .sideBarBtn {
-    display: flex;
-    align-items:center;
-    justify-content: flex-start;
-    gap: 20px;
-    font-family: 'Arial', sans-serif;
-    text-align:center;
-    font-weight: 500;
-    line-height:20px;
-    color: #1f1f1f;
-    font-size: 14px;
-    background-color: transparent;
-    cursor: pointer;
-    width: 224px;
-    height: 32px;
-  }
-
   .sideBarBody {
     padding: 8px 0 16px;
-  }
-
-  .sideBarList {
-    display: flex;
-    flex-direction:column;
-    gap: 16px;
-  }
-
-  .sideBarItemGroup {
-    display:grid;
-    grid-template-rows: 1fr 1fr 1fr;
-  }
-
-  .sideBarItem {
-    display:flex;
-    align-items:center;
-    border-radius: 100px;
-    font-size:14px;
-    line-height: 26px;
-    gap:20px;
-
-    &:hover {
-      background-color: var(--color-gray-lightest);
-    }
-
-    &:active {
-      background-color: var(--color-primary-lightest);
-    }
-  }
-
-  .sideBarItemIcon {
-    display: flex;
-    justify-content:space-between ;
-    align-items: center;
-    background-color: transparent;
-    gap: 5px;
-    width:20px;
-    height: 20px;
-  }
-
-  .sideBarItemContent {
-    background-color:transparent;
   }
 
   .sideBarBodyStorage {

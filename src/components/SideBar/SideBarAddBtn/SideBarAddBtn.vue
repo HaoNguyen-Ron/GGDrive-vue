@@ -1,111 +1,134 @@
 <script setup>
+import { onMounted } from 'vue'
+
 const dropdownVisible = ref(false)
+const dropdown = ref(null)
 
 function toggleDropdown() {
   dropdownVisible.value = !dropdownVisible.value
 };
 
+function handleClickDropdownItem() {
+  dropdownVisible.value = false
+}
+
+function handleCloseDropdown(e) {
+  if (!dropdown.value.contains(e.target)) dropdownVisible.value = false
+}
+
+onMounted(() => {
+  window.addEventListener('click', handleCloseDropdown)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('click', handleCloseDropdown)
+})
 </script>
 
 <template>
-  <button :class="$style.sideBarAddBtn" @click="toggleDropdown">
-    <i class="fa-solid fa-plus" :class="$style.sideBarAddBtnIcon" />
-
-    <span :class="$style.sideBarAddBtnTitle">Mới</span>
-  </button>
-
+  <div :class="$style.sideBarAddBtnWrapper">
+    <button ref="dropdown" :class="$style.sideBarAddBtn" @click="toggleDropdown">
+      <i class="fa-solid fa-plus" :class="$style.sideBarAddBtnIcon" />
+  
+      <span :class="$style.sideBarAddBtnTitle">Mới</span>
+    </button>
+  
     <ul v-if="dropdownVisible" :class="$style.sideBarDropdownList">
-      <li :class="$style.sideBarDropdownItem">
+      <li :class="$style.sideBarDropdownItem" @click="handleClickDropdownItem">
         <div :class="$style.sideBarDropdownItemIcon">
           <i class="fa-solid fa-folder-plus" />
         </div>
-
+  
         <span :class="$style.sideBarDropdownItemTitle">
           Thư mục mới
         </span>
       </li>
-
+  
       <div :class="$style.sideBarBorderBottom" />
-
-      <li :class="$style.sideBarDropdownItem">
+  
+      <li :class="$style.sideBarDropdownItem" @click="handleClickDropdownItem">
         <div :class="$style.sideBarDropdownItemIcon">
           <i class="fa-solid fa-file-arrow-up" />
         </div>
-
+  
         <span :class="$style.sideBarDropdownItemTitle">
           Tải tệp lên
         </span>
       </li>
-
-      <li :class="$style.sideBarDropdownItem">
+  
+      <li :class="$style.sideBarDropdownItem" @click="handleClickDropdownItem">
         <div :class="$style.sideBarDropdownItemIcon">
           <i class="fa-regular fa-folder-open" />
         </div>
-
+  
         <span :class="$style.sideBarDropdownItemTitle">
           Tải thư mục lên
         </span>
       </li>
-
+  
       <div :class="$style.sideBarBorderBottom" />
-
-      <li :class="$style.sideBarDropdownItem">
+  
+      <li :class="$style.sideBarDropdownItem" @click="handleClickDropdownItem">
         <div :class="$style.sideBarDropdownItemIcon">
           <img src="@/assets/images/google-icon/gg-doc.png" alt="" :class="$style.sideBarDropdownItemImage">
         </div>
-
+  
         <span :class="[$style.sideBarDropdownItemTitle, $style.sideBarDropdownChild]">
           Google tài liệu
-
+  
           <button :class=" $style.sideBarExpandBtn">
             <i class="fa-solid fa-caret-right" />
           </button>
         </span>
       </li>
-
-      <li :class="$style.sideBarDropdownItem">
+  
+      <li :class="$style.sideBarDropdownItem" @click="handleClickDropdownItem">
         <div :class="$style.sideBarDropdownItemIcon">
           <img src="@/assets/images/google-icon/gg-excel.png" alt="" :class="$style.sideBarDropdownItemImage">
         </div>
-
+  
         <span :class="[$style.sideBarDropdownItemTitle, $style.sideBarDropdownChild]">
           Google trang tính
-
+  
           <button :class=" $style.sideBarExpandBtn">
             <i class="fa-solid fa-caret-right" />
           </button>
         </span>
       </li>
-
-      <li :class="$style.sideBarDropdownItem">
+  
+      <li :class="$style.sideBarDropdownItem" @click="handleClickDropdownItem">
         <div :class="$style.sideBarDropdownItemIcon">
           <img src="@/assets/images/google-icon/gg-slide.png" alt="" :class="$style.sideBarDropdownItemImage">
         </div>
-
+  
         <span :class="[$style.sideBarDropdownItemTitle, $style.sideBarDropdownChild]">
           Google trang trình bày
-
+  
           <button :class=" $style.sideBarExpandBtn">
             <i class="fa-solid fa-caret-right" />
           </button>
         </span>
       </li>
-
-      <li :class="$style.sideBarDropdownItem">
+  
+      <li :class="$style.sideBarDropdownItem" @click="handleClickDropdownItem">
         <div :class="$style.sideBarDropdownItemIcon" />
-
+  
         <span :class="[$style.sideBarDropdownItemTitle, $style.sideBarDropdownChild]">
           Ứng dụng khác
-
+  
           <button :class=" $style.sideBarExpandBtn">
             <i class="fa-solid fa-caret-right" />
           </button>
         </span>
       </li>
     </ul>
+  </div>
 </template>
 
 <style lang="scss" module>
+.sideBarAddBtnWrapper {
+  position: relative;
+}
 .sideBarAddBtn {
   display: flex;
   align-items:center;
@@ -153,6 +176,8 @@ function toggleDropdown() {
   border-radius: 5px;
   background-color: #ffffff;
   box-shadow:  rgba(0, 0, 0, 0.3) 0px 4px 6px 0px;
+  z-index: 3;
+  top: 0;
 }
 
 .sideBarDropdownItem {
