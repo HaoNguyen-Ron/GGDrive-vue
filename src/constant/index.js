@@ -2,69 +2,70 @@ export const GOOGLE_ICON_API = [
     {
         id:1,
         name: 'search',
-        image: '@/assets/images/google-icon/gg-search.png'
+        image: 'gg-search'
     },
     {
         id:2,
         name:'youtube',
-        image:'@/assets/images/google-icon/gg-youtube.png'
-    },
-    {
-        name:'maps',
-        image:'@/assets/images/google-icon/gg-map.png'
+        image:'gg-youtube'
     },
     {
         id:3,
-        name:'gmail',
-        image:'@/assets/images/google-icon/gg-gmail.png'
+        name:'maps',
+        image:'gg-map'
     },
     {
         id:4,
-        name:'news',
-        image:'@/assets/images/google-icon/gg-new.png'
+        name:'gmail',
+        image:'gg-gmail'
     },
-    {   id:5,
-        name:'play',
-        image:'@/assets/images/google-icon/gg-play.png'
+    {
+        id:5,
+        name:'news',
+        image:'gg-news'
     },
     {   id:6,
-        name:'meet',
-        image:'@/assets/images/google-icon/gg-meet.png'
+        name:'play',
+        image:'gg-play'
     },
     {   id:7,
-        name:'chat',
-        image:'@/assets/images/google-icon/gg-chat.png'
+        name:'meet',
+        image:'gg-meet'
     },
     {   id:8,
-        name:'drive',
-        image:'@/assets/images/google-icon/gg-drive.png'
+        name:'chat',
+        image:'gg-chat'
     },
     {   id:9,
-        name:'contact',
-        image:'@/assets/images/google-icon/gg-contact.png'
+        name:'drive',
+        image:'gg-drive'
     },
     {   id:10,
-        name:'calendar',
-        image:'@/assets/images/google-icon/gg-calendar.png'
+        name:'contact',
+        image:'gg-contact'
     },
     {   id:11,
-        name:'translate',
-        image:'@/assets/images/google-icon/gg-translate.png'
+        name:'calendar',
+        image:'gg-calendar'
     },
     {   id:12,
-        name:'doc',
-        image:'@/assets/images/google-icon/gg-doc.png'
+        name:'translate',
+        image:'gg-translate'
     },
     {   id:13,
-        name:'excel',
-        image:'@/assets/images/google-icon/gg-excel.png'
+        name:'doc',
+        image:'gg-doc'
     },
     {   id:14,
-        name:'slide',
-        image:'@/assets/images/google-icon/gg-slide.png'
+        name:'excel',
+        image:'gg-excel'
     },
     {   id:15,
+        name:'slide',
+        image:'gg-slide'
+    },
+    {   id:16,
         name:'claasroom',
-        image:'@/assets/images/google-icon/gg-class'
+        image:'gg-class'
     }
 ]

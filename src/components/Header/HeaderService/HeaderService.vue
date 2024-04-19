@@ -1,5 +1,6 @@
 <script setup>
 import { GOOGLE_ICON_API } from '@/constant'
+
 </script>
 
 <template>
@@ -7,8 +8,7 @@ import { GOOGLE_ICON_API } from '@/constant'
     <div :class="[$style.serviceWrapperGroup, $style.serviceWrapperList]">
       <div v-for="(item, index) in GOOGLE_ICON_API" :key="index" :class="$style.serviceWrapperItem">
         <a href="/">
-          <!-- <img :src="item.image" alt="gg services"> -->
-          <el-avatar :size="53" />
+          <img :src="`src/assets/images/google-icon/${item.image}.png`" alt="" :class="$style.serviceWrapperImage">
         </a>
 
         <p>{{ item.name }}</p>
@@ -18,8 +18,7 @@ import { GOOGLE_ICON_API } from '@/constant'
     <div :class="[$style.serviceWrapperGroup, $style.serviceWrapperList]">
       <div v-for="(item, index) in GOOGLE_ICON_API" :key="index" :class="$style.serviceWrapperItem">
         <a href="/">
-          <!-- <img :src="item.image" alt="gg services"> -->
-          <el-avatar :size="53" />
+          <img :src="`src/assets/images/google-icon/${item.image}.png`" alt="" :class="$style.serviceWrapperImage">
         </a>
 
         <p>{{ item.name }}</p>
@@ -42,7 +41,7 @@ import { GOOGLE_ICON_API } from '@/constant'
         width: 100%;
         padding: 24px 20px;
         background-color: #ffffff;
-        
+
         &:first-child {
             border-top-left-radius: 20px;
             border-top-right-radius: 20px;
@@ -78,6 +77,11 @@ import { GOOGLE_ICON_API } from '@/constant'
         &:hover {
             background-color:#e9eef6;
         }
+    }
+
+    .serviceWrapperImage {
+      width: 53px;
+      height:53px;
     }
 
     :global(.el-dropdown__popper.el-popper) {

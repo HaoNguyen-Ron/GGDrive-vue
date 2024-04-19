@@ -29,6 +29,7 @@
   .sideBarWrapper {
     flex: 0 0 250px;
     height: 90vh;
+    max-width: 250px;
   }
 
   .sideBarHeader {

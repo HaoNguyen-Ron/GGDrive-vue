@@ -20,6 +20,12 @@ const subAccounts = [
     last_name: 'Chad',
   },
 ]
+
+const isOpen = ref(false)
+
+function handleMenuClick(event) {
+  isOpen.value = !isOpen.value
+}
 </script>
 
 <template>
@@ -46,10 +52,12 @@ const subAccounts = [
       default-active="2"
       class="el-menu-vertical-demo"
       :class="$style.headerAccountUsers"
+      @click="handleMenuClick"
     >
       <el-sub-menu>
         <template #title>
-          <span> Hiện thêm tài khoản</span>
+          <span v-if="isOpen === true">Ẩn bớt tài khoản</span>
+          <span v-else>Hiện thêm tài khoản</span>
         </template>
 
         <el-menu-item-group :class="$style.headerAccountList">

@@ -1,6 +1,7 @@
 <script setup>
-const activeDrive = ref(['1'])
-const activePc = ref(['1'])
+const activeDrive = ref(['0'])
+const activePc = ref(['0'])
+const activeDriveChild = ref(['0'])
 </script>
 
 <template>
@@ -15,24 +16,6 @@ const activePc = ref(['1'])
         <span :class="$style.sideBarCategoryContent">Trang chủ</span>
       </button>
 
-      <!-- <button :class="[$style.sideBarBtn, $style.sideBarCategory]">
-        <div :class="$style.sideBarCategoryIcon">
-          <i class="fa-solid fa-caret-right" />
-          <i class="fa-regular fa-hard-drive" />
-        </div>
-
-        <span :class="$style.sideBarCategoryContent">Drive của tôi</span>
-      </button> -->
-
-      <!-- <button :class="[$style.sideBarBtn, $style.sideBarCategory]">
-        <div :class="$style.sideBarCategoryIcon">
-          <i class="fa-solid fa-caret-right" />
-          <i class="fa-solid fa-computer" />
-        </div>
-
-        <span :class="$style.sideBarCategoryContent">Máy Tính</span>
-      </button> -->
-
       <el-collapse v-model="activeDrive">
         <el-collapse-item name="1">
           <template #title>
@@ -46,14 +29,91 @@ const activePc = ref(['1'])
             </button>
           </template>
 
-          <div>
-            Consistent with real life: in line with the process and logic of real
-            life, and comply with languages and habits that the users are used to;
-          </div>
-          <div>
-            Consistent within interface: all elements should be consistent, such
-            as: design style, icons and texts, position of elements, etc.
-          </div>
+          <el-collapse v-model="activeDriveChild" accordion name="1">
+            <el-collapse-item name="1">
+              <template #title>
+                <button :class="[$style.sideBarBtn, $style.sideBarCategory, $style.sideBarCollapseChild]">
+                  <div :class="$style.sideBarCategoryIcon">
+                    <i class="fa-solid fa-caret-right" />
+                    <i class="fa-regular fa-folder-open" />
+                  </div>
+
+                  <span :class="$style.sideBarCategoryContent">Folder Child</span>
+                </button>
+              </template>
+
+              <button :class="[$style.sideBarBtn, $style.sideBarCategory, $style.sideBarCollapseChild]" name="1">
+                <div :class="[$style.sideBarCategoryIcon, $style.sideBarCollapseChild]">
+                  <i class="fa-solid fa-caret-right" :style="{ opacity: '0' }" />
+                  <i class="fa-regular fa-folder-open" />
+                </div>
+
+                <span :class="[$style.sideBarCategoryContent, $style.sideBarCollapseChild]">Folder 1</span>
+              </button>
+
+              <button :class="[$style.sideBarBtn, $style.sideBarCategory, $style.sideBarCollapseChild]" name="2">
+                <div :class="[$style.sideBarCategoryIcon, $style.sideBarCollapseChild]">
+                  <i class="fa-solid fa-caret-right" :style="{ opacity: '0' }" />
+                  <i class="fa-regular fa-folder-open" />
+                </div>
+
+                <span :class="[$style.sideBarCategoryContent, $style.sideBarCollapseChild]">Folder 1</span>
+              </button>
+
+              <button :class="[$style.sideBarBtn, $style.sideBarCategory, $style.sideBarCollapseChild]">
+                <div :class="[$style.sideBarCategoryIcon, $style.sideBarCollapseChild]">
+                  <i class="fa-solid fa-caret-right" :style="{ opacity: '0' }" />
+                  <i class="fa-regular fa-folder-open" />
+                </div>
+
+                <span :class="[$style.sideBarCategoryContent, $style.sideBarCollapseChild]">Folder 1</span>
+              </button>
+
+            </el-collapse-item>
+          </el-collapse>
+
+          <el-collapse v-model="activeDriveChild" accordion name="2">
+            <el-collapse-item name="1">
+              <template #title>
+                <button :class="[$style.sideBarBtn, $style.sideBarCategory, $style.sideBarCollapseChild]">
+                  <div :class="$style.sideBarCategoryIcon">
+                    <i class="fa-solid fa-caret-right" />
+                    <i class="fa-regular fa-folder-open" />
+                  </div>
+
+                  <span :class="$style.sideBarCategoryContent">Folder Child</span>
+                </button>
+              </template>
+
+              <button :class="[$style.sideBarBtn, $style.sideBarCategory, $style.sideBarCollapseChild]">
+                <div :class="[$style.sideBarCategoryIcon, $style.sideBarCollapseChild]">
+                  <i class="fa-solid fa-caret-right" :style="{ opacity: '0' }" />
+                  <i class="fa-regular fa-folder-open" />
+                </div>
+
+                <span :class="[$style.sideBarCategoryContent, $style.sideBarCollapseChild]">Folder 1</span>
+              </button>
+
+              <button :class="[$style.sideBarBtn, $style.sideBarCategory, $style.sideBarCollapseChild]">
+                <div :class="[$style.sideBarCategoryIcon, $style.sideBarCollapseChild]">
+                  <i class="fa-solid fa-caret-right" :style="{ opacity: '0' }" />
+                  <i class="fa-regular fa-folder-open" />
+                </div>
+
+                <span :class="[$style.sideBarCategoryContent, $style.sideBarCollapseChild]">Folder 1</span>
+              </button>
+
+              <button :class="[$style.sideBarBtn, $style.sideBarCategory, $style.sideBarCollapseChild]">
+                <div :class="[$style.sideBarCategoryIcon, $style.sideBarCollapseChild]">
+                  <i class="fa-solid fa-caret-right" :style="{ opacity: '0' }" />
+                  <i class="fa-regular fa-folder-open" />
+                </div>
+
+                <span :class="[$style.sideBarCategoryContent, $style.sideBarCollapseChild]">Folder 1</span>
+              </button>
+
+            </el-collapse-item>
+          </el-collapse>
         </el-collapse-item>
       </el-collapse>
 
@@ -63,21 +123,98 @@ const activePc = ref(['1'])
             <button :class="[$style.sideBarBtn, $style.sideBarCategory]">
               <div :class="$style.sideBarCategoryIcon">
                 <i class="fa-solid fa-caret-right" />
-                <i class="fa-regular fa-hard-drive" />
+                <i class="fa-solid fa-computer" />
               </div>
 
               <span :class="$style.sideBarCategoryContent">Máy tính</span>
             </button>
           </template>
 
-          <div>
-            Consistent with real life: in line with the process and logic of real
-            life, and comply with languages and habits that the users are used to;
-          </div>
-          <div>
-            Consistent within interface: all elements should be consistent, such
-            as: design style, icons and texts, position of elements, etc.
-          </div>
+          <el-collapse v-model="activeDriveChild" accordion name="1">
+            <el-collapse-item name="1">
+              <template #title>
+                <button :class="[$style.sideBarBtn, $style.sideBarCategory, $style.sideBarCollapseChild]">
+                  <div :class="$style.sideBarCategoryIcon">
+                    <i class="fa-solid fa-caret-right" />
+                    <i class="fa-regular fa-folder-open" />
+                  </div>
+
+                  <span :class="$style.sideBarCategoryContent">Folder Child</span>
+                </button>
+              </template>
+
+              <button :class="[$style.sideBarBtn, $style.sideBarCategory, $style.sideBarCollapseChild]" name="1">
+                <div :class="[$style.sideBarCategoryIcon, $style.sideBarCollapseChild]">
+                  <i class="fa-solid fa-caret-right" :style="{ opacity: '0' }" />
+                  <i class="fa-regular fa-folder-open" />
+                </div>
+
+                <span :class="[$style.sideBarCategoryContent, $style.sideBarCollapseChild]">Folder 1</span>
+              </button>
+
+              <button :class="[$style.sideBarBtn, $style.sideBarCategory, $style.sideBarCollapseChild]" name="2">
+                <div :class="[$style.sideBarCategoryIcon, $style.sideBarCollapseChild]">
+                  <i class="fa-solid fa-caret-right" :style="{ opacity: '0' }" />
+                  <i class="fa-regular fa-folder-open" />
+                </div>
+
+                <span :class="[$style.sideBarCategoryContent, $style.sideBarCollapseChild]">Folder 1</span>
+              </button>
+
+              <button :class="[$style.sideBarBtn, $style.sideBarCategory, $style.sideBarCollapseChild]">
+                <div :class="[$style.sideBarCategoryIcon, $style.sideBarCollapseChild]">
+                  <i class="fa-solid fa-caret-right" :style="{ opacity: '0' }" />
+                  <i class="fa-regular fa-folder-open" />
+                </div>
+
+                <span :class="[$style.sideBarCategoryContent, $style.sideBarCollapseChild]">Folder 1</span>
+              </button>
+
+            </el-collapse-item>
+          </el-collapse>
+
+          <el-collapse v-model="activeDriveChild" accordion name="2">
+            <el-collapse-item name="1">
+              <template #title>
+                <button :class="[$style.sideBarBtn, $style.sideBarCategory, $style.sideBarCollapseChild]">
+                  <div :class="$style.sideBarCategoryIcon">
+                    <i class="fa-solid fa-caret-right" />
+                    <i class="fa-regular fa-folder-open" />
+                  </div>
+
+                  <span :class="$style.sideBarCategoryContent">Folder Child</span>
+                </button>
+              </template>
+
+              <button :class="[$style.sideBarBtn, $style.sideBarCategory, $style.sideBarCollapseChild]">
+                <div :class="[$style.sideBarCategoryIcon, $style.sideBarCollapseChild]">
+                  <i class="fa-solid fa-caret-right" :style="{ opacity: '0' }" />
+                  <i class="fa-regular fa-folder-open" />
+                </div>
+
+                <span :class="[$style.sideBarCategoryContent, $style.sideBarCollapseChild]">Folder 1</span>
+              </button>
+
+              <button :class="[$style.sideBarBtn, $style.sideBarCategory, $style.sideBarCollapseChild]">
+                <div :class="[$style.sideBarCategoryIcon, $style.sideBarCollapseChild]">
+                  <i class="fa-solid fa-caret-right" :style="{ opacity: '0' }" />
+                  <i class="fa-regular fa-folder-open" />
+                </div>
+
+                <span :class="[$style.sideBarCategoryContent, $style.sideBarCollapseChild]">Folder 1</span>
+              </button>
+
+              <button :class="[$style.sideBarBtn, $style.sideBarCategory, $style.sideBarCollapseChild]">
+                <div :class="[$style.sideBarCategoryIcon, $style.sideBarCollapseChild]">
+                  <i class="fa-solid fa-caret-right" :style="{ opacity: '0' }" />
+                  <i class="fa-regular fa-folder-open" />
+                </div>
+
+                <span :class="[$style.sideBarCategoryContent, $style.sideBarCollapseChild]">Folder 1</span>
+              </button>
+
+            </el-collapse-item>
+          </el-collapse>
         </el-collapse-item>
       </el-collapse>
     </div>
@@ -202,9 +339,18 @@ const activePc = ref(['1'])
     height: 32px;
   }
 
+  .sideBarCollapseChild {
+    padding-left: 20px;
+  }
+
   :global(.el-collapse-item__header) {
     background-color: transparent;
     border-bottom: none;
+    height: 32px;
+  }
+
+  :global(.el-collapse-item__content) {
+    padding-bottom: 0;
   }
 
   :global(.el-collapse) {
